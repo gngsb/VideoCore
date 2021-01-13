@@ -1,0 +1,9 @@
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\bin\Debug\netcoreapp3.1\VideoManage.ToolKits.deps.json
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\bin\Debug\netcoreapp3.1\VideoManage.ToolKits.dll
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\bin\Debug\netcoreapp3.1\VideoManage.ToolKits.pdb
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\obj\Debug\netcoreapp3.1\VideoManage.ToolKits.csprojAssemblyReference.cache
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\obj\Debug\netcoreapp3.1\VideoManage.ToolKits.AssemblyInfoInputs.cache
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\obj\Debug\netcoreapp3.1\VideoManage.ToolKits.AssemblyInfo.cs
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\obj\Debug\netcoreapp3.1\VideoManage.ToolKits.csproj.CoreCompileInputs.cache
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\obj\Debug\netcoreapp3.1\VideoManage.ToolKits.dll
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage.ToolKits\obj\Debug\netcoreapp3.1\VideoManage.ToolKits.pdb

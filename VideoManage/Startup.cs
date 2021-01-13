@@ -16,6 +16,9 @@ using Microsoft.OpenApi.Models;
 using VideoManage.Service.Video;
 using System.Reflection;
 using System.IO;
+using log4net.Repository;
+using log4net;
+using log4net.Config;
 
 namespace VideoManage
 {
@@ -32,6 +35,8 @@ namespace VideoManage
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //¿çÓò·ÃÎÊ£¬ÁÙÊ±µÄ
+            services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetPreflightMaxAge(TimeSpan.FromDays(10))));
             services.AddScoped<DbContext, VideoContext>();
             services.AddScoped<VideoService>();
             services.AddDbContext<VideoContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));

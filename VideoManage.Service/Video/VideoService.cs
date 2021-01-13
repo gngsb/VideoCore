@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using log4net;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using VideoManage.Constants;
 using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
 using VideoManage.Service.Extends;
+using VideoManage.ToolKits.Helper;
 
 namespace VideoManage.Service.Video
 {
@@ -22,23 +24,33 @@ namespace VideoManage.Service.Video
         public PageApiResult<VVideolist> GetVideo(PageQuery query) 
         {
             var result = new PageApiResult<VVideolist>();
-            var count = _videoContext.VVideolist.Count();
-            var list = _videoContext.VVideolist.AsNoTracking();
-            if (!string.IsNullOrEmpty(query.Name)) 
+            LoggerHelper.ErrorToFile("获取视频列表出现异常，异常原因：");
+            try 
             {
-                list = list.Where(x => x.Name.Contains(query.Name));
+                var count = _videoContext.VVideolist.Count();
+                var list = _videoContext.VVideolist.AsNoTracking();
+                if (!string.IsNullOrEmpty(query.Name))
+                {
+                    list = list.Where(x => x.Name.Contains(query.Name));
+                }
+                if (query.Cid.HasValue)
+                {
+                    list = list.Where(x => x.Cid == query.Cid);
+                }
+                if (query.TypeId.HasValue)
+                {
+                    list = list.Where(x => x.TypeId == query.TypeId);
+                }
+                list = list.OrderBy(x => x.CreateTime);
+                var lists = list.PageByIndex(query.page, query.limit).ToList();
+                result.count = count;
+                result.data = lists;
             }
-            if (query.Cid.HasValue) 
+            catch (Exception ex) 
             {
-                list = list.Where(x => x.Cid == query.Cid);
+                LoggerHelper.ErrorToFile("获取视频列表出现异常，异常原因：" + ex.Message);
             }
-            if (query.TypeId.HasValue) 
-            {
-                list = list.Where(x => x.TypeId == query.TypeId);
-            }
-            list.PageByIndex(query.page, query.limit);
-            result.count = count;
-            result.data = list;
+            
             return result;
         }
     }

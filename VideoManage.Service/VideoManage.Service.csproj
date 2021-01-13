@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\VideoManage.Constants\VideoManage.Constants.csproj" />
     <ProjectReference Include="..\VideoManage.EFCore\VideoManage.EFCore.csproj" />
+    <ProjectReference Include="..\VideoManage.ToolKits\VideoManage.ToolKits.csproj" />
   </ItemGroup>
 
 </Project>

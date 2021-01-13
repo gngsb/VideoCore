@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManage.Hosting", "VideoManage\VideoManage.Hosting.csproj", "{CF1ADCB5-6470-45A2-AAB1-9C89C8F20B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoManage.Hosting", "VideoManage\VideoManage.Hosting.csproj", "{CF1ADCB5-6470-45A2-AAB1-9C89C8F20B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManage.EFCore", "VideoManage.EFCore\VideoManage.EFCore.csproj", "{774A7369-807F-4D91-909C-1D2F71D0DBCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoManage.EFCore", "VideoManage.EFCore\VideoManage.EFCore.csproj", "{774A7369-807F-4D91-909C-1D2F71D0DBCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManage.Service", "VideoManage.Service\VideoManage.Service.csproj", "{D31596D9-210C-479B-A2DA-B64C6D8CF8A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoManage.Service", "VideoManage.Service\VideoManage.Service.csproj", "{D31596D9-210C-479B-A2DA-B64C6D8CF8A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManage.Constants", "VideoManage.Constants\VideoManage.Constants.csproj", "{18BC23DE-71ED-45E0-A81E-45E8960E484E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoManage.Constants", "VideoManage.Constants\VideoManage.Constants.csproj", "{18BC23DE-71ED-45E0-A81E-45E8960E484E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoManage.ToolKits", "VideoManage.ToolKits\VideoManage.ToolKits.csproj", "{D87E1028-5627-4B60-8582-AADB09FA0152}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{18BC23DE-71ED-45E0-A81E-45E8960E484E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18BC23DE-71ED-45E0-A81E-45E8960E484E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18BC23DE-71ED-45E0-A81E-45E8960E484E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D87E1028-5627-4B60-8582-AADB09FA0152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D87E1028-5627-4B60-8582-AADB09FA0152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D87E1028-5627-4B60-8582-AADB09FA0152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D87E1028-5627-4B60-8582-AADB09FA0152}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

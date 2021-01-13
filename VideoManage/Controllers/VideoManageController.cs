@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using log4net;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +25,23 @@ namespace VideoManage.Controllers
         /// <summary>
         /// 获取视频列表
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="page"></param>
+        /// <param name="limit"></param>
+        /// <param name="Name"></param>
+        /// <param name="CId"></param>
+        /// <param name="TypeId"></param>
         /// <returns></returns>
-        [HttpPost]
-        public PageApiResult<VVideolist> GetVideo(PageQuery query) 
+        [HttpGet]
+        public PageApiResult<VVideolist> GetVideo(int page,int limit,string Name,int? CId,int? TypeId) 
         {
+            PageQuery query = new PageQuery
+            {
+                page = page,
+                limit = limit,
+                Name = Name,
+                Cid = CId,
+                TypeId = TypeId
+            };
             return _service.GetVideo(query);
         }
     }
