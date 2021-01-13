@@ -1,0 +1,9 @@
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\bin\Debug\netcoreapp3.1\VideoManage.Swagger.deps.json
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\bin\Debug\netcoreapp3.1\VideoManage.Swagger.dll
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\bin\Debug\netcoreapp3.1\VideoManage.Swagger.pdb
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\obj\Debug\netcoreapp3.1\VideoManage.Swagger.csprojAssemblyReference.cache
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\obj\Debug\netcoreapp3.1\VideoManage.Swagger.AssemblyInfoInputs.cache
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\obj\Debug\netcoreapp3.1\VideoManage.Swagger.AssemblyInfo.cs
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\obj\Debug\netcoreapp3.1\VideoManage.Swagger.csproj.CoreCompileInputs.cache
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\obj\Debug\netcoreapp3.1\VideoManage.Swagger.dll
+F:\01个人文档\01项目代码\01.NET\视频系统\VideoManage\VideoManage\VideoManage.Swagger\obj\Debug\netcoreapp3.1\VideoManage.Swagger.pdb

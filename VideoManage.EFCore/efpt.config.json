@@ -1,0 +1,41 @@
+﻿{
+   "ContextClassName": "VideoContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "VideoManage.EFCore",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "v_countries"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "v_type"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "v_videolist"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "v_videos"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
+}
