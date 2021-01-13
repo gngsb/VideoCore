@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VideoManage.Hosting</name>
+    </assembly>
+    <members>
+        <member name="M:VideoManage.Controllers.VideoManageController.GetVideo(VideoManage.EFCore.Models.PageQuery)">
+            <summary>
+            获取视频列表
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
