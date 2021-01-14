@@ -47,6 +47,7 @@ namespace VideoManage.Service.Video
             }
             catch (Exception ex) 
             {
+                result.code = "1";
                 LoggerHelper.ErrorToFile("获取视频列表出现异常，异常原因：" + ex.Message);
             }
             
@@ -78,6 +79,83 @@ namespace VideoManage.Service.Video
         public VVideos SelectVideo(int Vid)
         {
             return _videoContext.VVideos.AsNoTracking().Where(x => x.Id == Vid).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// 添加视频信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public Result AddVideo(VideoModel model) 
+        {
+            Result result = new Result();
+            try 
+            {
+                VVideos videos = new VVideos();
+                videos.Cid = model.Cid;
+                videos.ImgUrl = model.ImgUrl;
+                videos.TypeId = model.TypeId;
+                videos.Remarks = model.Remarks;
+                videos.Name = model.Name;
+                videos.CreateTime = DateTime.Now;
+                videos.Type = "1";
+                var res = _videoContext.VVideos.Add(videos);
+                _videoContext.SaveChanges();
+                if (res != null)
+                {
+                    result.code = "0";
+                    result.msg = "新增成功";
+                }
+                else 
+                {
+                    result.code = "1";
+                    result.msg = "新增失败";
+                }
+                return result;
+            }
+            catch (Exception ex) 
+            {
+                LoggerHelper.ErrorToFile("视频新增失败，失败原因：" + ex.Message);
+                result.code = "1";
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// 修改视频信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public Result EditVideo(VideoModel model) 
+        {
+            Result result = new Result();
+            try 
+            {
+                var video = _videoContext.VVideos.Where(x => x.Id == model.Vid).FirstOrDefault();
+                if (video == null)
+                {
+                    result.code = "1";
+                    result.msg = "视频信息查找失败！";
+                    return result;
+                }
+                video.Name = model.Name;
+                video.Cid = model.Cid;
+                video.TypeId = model.TypeId;
+                video.ModifyTime = DateTime.Now;
+                video.ImgUrl = model.ImgUrl;
+                video.Remarks = model.Remarks;
+                _videoContext.VVideos.Update(video);
+                _videoContext.SaveChanges();
+                result.msg = "新增成功";
+                return result;
+            }
+            catch (Exception ex)
+            {
+                LoggerHelper.ErrorToFile("视频修改失败，失败原因：" + ex.Message);
+                result.code = "1";
+                return result;
+            }
+           
         }
 
     }

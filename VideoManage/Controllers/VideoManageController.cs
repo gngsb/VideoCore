@@ -74,5 +74,27 @@ namespace VideoManage.Controllers
         {
             return _service.SelectVideo(Vid);
         }
+
+        /// <summary>
+        /// 添加视频信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Result AddVideo(VideoModel model) 
+        {
+            return _service.AddVideo(model);
+        }
+
+        /// <summary>
+        /// 修改视频信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Result EditVideo(VideoModel model) 
+        {
+            return _service.EditVideo(model);
+        }
     }
 }
