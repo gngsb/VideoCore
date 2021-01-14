@@ -19,6 +19,7 @@ using System.IO;
 using log4net.Repository;
 using log4net;
 using log4net.Config;
+using VideoManage.Service.Uploads;
 
 namespace VideoManage
 {
@@ -39,12 +40,13 @@ namespace VideoManage
             services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetPreflightMaxAge(TimeSpan.FromDays(10))));
             services.AddScoped<DbContext, VideoContext>();
             services.AddScoped<VideoService>();
+            services.AddScoped<UploadService>();
             services.AddDbContext<VideoContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo { Title = "视频管理系统", Version = "v1" });
                     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    var xmlPath = Path.Combine(Directory.GetCurrentDirectory(), xmlFile);//AppContext.BaseDirectory
                     // 启用xml注释. 该方法第二个参数启用控制器的注释，默认为false
                     c.IncludeXmlComments(xmlPath);
                 }

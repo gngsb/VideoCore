@@ -24,7 +24,6 @@ namespace VideoManage.Service.Video
         public PageApiResult<VVideolist> GetVideo(PageQuery query) 
         {
             var result = new PageApiResult<VVideolist>();
-            LoggerHelper.ErrorToFile("获取视频列表出现异常，异常原因：");
             try 
             {
                 var count = _videoContext.VVideolist.Count();
@@ -53,5 +52,33 @@ namespace VideoManage.Service.Video
             
             return result;
         }
+
+        /// <summary>
+        /// 获取所有国家列表数据
+        /// </summary>
+        /// <returns></returns>
+        public List<VCountries> getList() 
+        {
+            return _videoContext.VCountries.AsNoTracking().ToList();
+        }
+
+        /// <summary>
+        /// 获取视频类别列表
+        /// </summary>
+        /// <returns></returns>
+        public List<VType> getType()
+        {
+            return _videoContext.VType.AsNoTracking().ToList();
+        }
+
+        /// <summary>
+        /// 获取视频详情
+        /// </summary>
+        /// <returns></returns>
+        public VVideos SelectVideo(int Vid)
+        {
+            return _videoContext.VVideos.AsNoTracking().Where(x => x.Id == Vid).FirstOrDefault();
+        }
+
     }
 }

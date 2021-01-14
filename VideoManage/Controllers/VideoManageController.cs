@@ -44,5 +44,35 @@ namespace VideoManage.Controllers
             };
             return _service.GetVideo(query);
         }
+
+        /// <summary>
+        /// 获取所有国家列表数据
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<VCountries> getList() 
+        {
+            return _service.getList();
+        }
+
+        /// <summary>
+        /// 获取视频类别列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<VType> getType() 
+        {
+            return _service.getType();
+        }
+
+        /// <summary>
+        /// 获取视频详情
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public VVideos SelectVideo(int Vid) 
+        {
+            return _service.SelectVideo(Vid);
+        }
     }
 }
