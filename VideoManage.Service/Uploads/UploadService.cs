@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using VideoManage.Constants;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace VideoManage.Service.Uploads
 {
@@ -126,6 +127,36 @@ namespace VideoManage.Service.Uploads
                 throw ex;
             }
             return ok;
+        }
+
+        /// <summary>
+        /// 判断远程服务器文件是否存在
+        /// </summary>
+        /// <param name="fileUrl"></param>
+        /// <returns></returns>
+        public bool RemoteFileExists(string fileUrl)
+        {
+            bool result = false;
+            WebResponse response = null;
+            try
+            {
+                WebRequest req = WebRequest.Create(fileUrl);
+                response = req.GetResponse();
+                result = response == null ? false : true;
+            }
+            catch (Exception ex)
+            {
+                //LogService.WriteErrorLog($"判断视频封面地址是否存在异常，封面地址：{fileUrl}异常原因：" + ex.Message);
+                result = false;
+            }
+            finally
+            {
+                if (response != null)
+                {
+                    response.Close();
+                }
+            }
+            return result;
         }
     }
 }

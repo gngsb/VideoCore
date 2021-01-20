@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using VideoManage.Constants;
@@ -12,6 +14,7 @@ using VideoManage.Service.Uploads;
 
 namespace VideoManage.Hosting.Controllers
 {
+    [Authorize]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class UploadController : ControllerBase
@@ -99,6 +102,53 @@ namespace VideoManage.Hosting.Controllers
 
         }
 
-        
+        [HttpGet]
+        public bool UploadOss() 
+        { 
+            string Thumbnails = "https://file.cnnho-vu.cn//ADUploadFiles/2020/09/29/e347e304-6296-44b6-ae4c-06a41bf2175c.jpg";
+            Thumbnails = Thumbnails.Split('?')[0];
+            string path = "";
+            try
+            {
+                #region 图片上传阿里oss
+                string tempPath = "/Upload/VideoCover/";
+                string saveDoc = System.AppDomain.CurrentDomain.BaseDirectory;
+                saveDoc = System.IO.Directory.GetParent(saveDoc).FullName + tempPath.Replace("/", "\\");
+                if (!Directory.Exists(saveDoc))
+                {
+                    Directory.CreateDirectory(saveDoc);
+                }
+
+                var bol = _uploadService.RemoteFileExists(Thumbnails);
+                if (bol)
+                {
+                    string FileName = System.IO.Path.GetFileName(Thumbnails);//文件名
+                    string savePath = saveDoc + "\\" + FileName;
+                    //先下载到本地，再上传oss
+                    WebClient wClient = new WebClient();
+                    wClient.DownloadFile(Thumbnails, savePath);
+                    //上传阿里云oss
+                    //var client = AliOssTools._OssClient;
+                    //上传文件
+                    //var result = client.PutObject(AliOssTools.ImgBucket, "LZVideoCover/" + FileName, savePath);
+                    //path = ImgSite + "LZVideoCover/" + FileName;
+                    return true;
+                }
+                else
+                {
+                    //LogService.WriteErrorLog("视频封面保存OSS失败，该封面地址不存在,路径：" + Thumbnails);
+                    return false;
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                //LogService.WriteErrorLog($"视频封面保存OSS异常，图片地址：{Thumbnails}异常原因：" + ex.Message);
+                return false;
+            }
+        }
+
+
+
     }
 }

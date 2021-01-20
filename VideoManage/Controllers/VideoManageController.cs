@@ -1,4 +1,5 @@
 ﻿using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,10 @@ using VideoManage.Service.Video;
 
 namespace VideoManage.Controllers
 {
+    
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class VideoManageController : ControllerBase
     {
         private readonly VideoService _service;
