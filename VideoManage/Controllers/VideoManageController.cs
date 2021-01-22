@@ -16,7 +16,7 @@ namespace VideoManage.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     [Authorize]
-    public class VideoManageController : ControllerBase
+    public class VideoManageController : Controller
     {
         private readonly VideoService _service;
 
