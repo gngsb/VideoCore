@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using VideoManage.Constants;
+using VideoManage.Constants.Configurations;
+using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
 
 namespace VideoManage.Hosting.Controllers
@@ -18,6 +21,13 @@ namespace VideoManage.Hosting.Controllers
     [Route("api/[controller]/[action]")]
     public class AccountController : Controller
     {
+        private readonly VideoContext _videoContext;
+
+        public AccountController(VideoContext videoContext)
+        {
+            _videoContext = videoContext;
+        }
+
         /// <summary>
         /// 用户登录
         /// </summary>
@@ -26,9 +36,14 @@ namespace VideoManage.Hosting.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if (!model.userName.Equals("admin") || !model.passWord.Equals("123456..."))
+            if (string.IsNullOrEmpty(model.userName) || string.IsNullOrEmpty(model.passWord)) 
             {
-                return Ok("登录失败");
+                return Json(new Result { code = "1", msg = "用户名或密码不能为空" });
+            }
+            var info = _videoContext.WAdmininfo.AsNoTracking().Where(x => x.Name == model.userName).FirstOrDefault();
+            if (!info.PassWord.Equals(model.passWord)) 
+            {
+                return Json(new Result { code = "1", msg = "密码输入错误，请重新输入" });
             }
 
             string token = GenerateToken("liu", model.userName);
@@ -67,11 +82,11 @@ namespace VideoManage.Hosting.Controllers
         private string GenerateToken(string userId, string userName)
         {
             //秘钥，这是生成Token需要的秘钥，就是理论提及到签名的那块秘钥
-            string secret = "baichaqinghuanwubieshi";
+            string secret = AppSettings.JWT.secret;// "baichaqinghuanwubieshi";
             //签发者，是由谁颁发的
-            string issuer = "issuer";
+            string issuer = AppSettings.JWT.issuer;// "issuer";
             //接受者，是给谁用的
-            string audience = "videos";
+            string audience = AppSettings.JWT.audience;// "videos";
             //指定秘钥
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret));
             //签名凭据，指定对应的签名算法

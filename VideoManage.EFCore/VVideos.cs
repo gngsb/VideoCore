@@ -32,6 +32,9 @@ namespace VideoManage.EFCore
         /// 说明
         /// </summary>
         public string Remarks { get; set; }
+        /// <summary>
+        /// 是否删除 0：是   1：否
+        /// </summary>
         public string Type { get; set; }
     }
 }

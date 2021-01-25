@@ -29,6 +29,7 @@ using VideoManage.Hosting.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Newtonsoft.Json;
 using VideoManage.Constants;
+using VideoManage.Constants.Configurations;
 
 namespace VideoManage
 {
@@ -86,11 +87,11 @@ namespace VideoManage
             #region 集成jwt
             //将公共信息提取出来，这里可以放到配置文件中，同一读取，以下直接在程序中写死了
             //秘钥，这是生成token需要秘钥，就是理论提及到签名的那块秘钥,必须要大于等于16位
-            string secret = "baichaqinghuanwubieshi";
+            string secret = AppSettings.JWT.secret;// "baichaqinghuanwubieshi";
             //签发着，是由谁颁发的
-            string issuer = "issuer";
+            string issuer = AppSettings.JWT.issuer;// "issuer";
             //接受者，是给谁用的
-            string audience = "videos";
+            string audience = AppSettings.JWT.audience;// "videos";
             //注册服务，显示指定为bearer
             services.AddAuthentication("Bearer").AddJwtBearer(options =>
             {
