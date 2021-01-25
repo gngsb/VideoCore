@@ -138,6 +138,24 @@ namespace VideoManage
             });
             #endregion
 
+            #region session
+            //使用session
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            //启用内存缓存(该步骤需在AddSession()调用前使用)
+            services.AddDistributedMemoryCache();//启用session之前必须先添加内存
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = AppSettings.Session.Name;
+                options.IdleTimeout = System.TimeSpan.FromMinutes(Convert.ToDouble(AppSettings.Session.TimeOut));//设置session过期时间
+                options.Cookie.HttpOnly = true;//设置在浏览器不能通过js获得该cookie的值
+            });
+            #endregion
+
+
             services.AddAuthorization();
             //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             //    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o =>
@@ -166,6 +184,8 @@ namespace VideoManage
             app.UseCors();
 
             app.UseSwagger();
+
+            app.UseSession();
 
             app.UseSwaggerUI(c =>
             {

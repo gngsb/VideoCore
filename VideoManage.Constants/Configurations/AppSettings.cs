@@ -24,13 +24,26 @@ namespace VideoManage.Constants.Configurations
             _config = builder.Build();
         }
 
+        /// <summary>
+        /// JWT配置文件
+        /// </summary>
         public static class JWT 
         {
-            public static string secret => _config["Jwt:secret"];
+            public static string secret => _config["Jwt:Secret"];
 
-            public static string issuer => _config["Jwt:issuer"];
+            public static string issuer => _config["Jwt:Issuer"];
 
-            public static string audience => _config["Jwt:audience"];
+            public static string audience => _config["Jwt:Audience"];
+        }
+
+        /// <summary>
+        /// Session配置文件
+        /// </summary>
+        public static class Session 
+        {
+            public static string Name => _config["Session:Name"];
+
+            public static string TimeOut => _config["Session:TimeOut"];
         }
     }
 }
