@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using VideoManage.Constants;
 using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
+using VideoManage.Hosting.Filters;
 using VideoManage.Service.Video;
 
 namespace VideoManage.Controllers
@@ -15,12 +16,32 @@ namespace VideoManage.Controllers
     
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
+    [MyAuthorizeFilter]
     public class VideoManageController : Controller
     {
+        //VideoContext context =null;
+
+        //protected VideoService _service 
+        //{ 
+        //    get {
+        //        if (_services == null) 
+        //        {
+        //            _services = new VideoService(context);
+        //        }
+        //        return _services;
+        //    } 
+        //}
+
+        //private VideoService _services = null;
+
+        //public VideoManageController(VideoContext _context)
+        //{
+        //    context = _context;
+        //}
+
         private readonly VideoService _service;
 
-        public VideoManageController(VideoService service) 
+        public VideoManageController(VideoService service)
         {
             _service = service;
         }

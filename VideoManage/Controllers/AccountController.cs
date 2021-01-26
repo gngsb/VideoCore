@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ using VideoManage.Constants;
 using VideoManage.Constants.Configurations;
 using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
+using VideoManage.ToolKits.Helper;
 
 namespace VideoManage.Hosting.Controllers
 {
@@ -34,7 +36,7 @@ namespace VideoManage.Hosting.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Login(LoginModel model)
+        public IActionResult Login(LoginModel model)
         {
             if (string.IsNullOrEmpty(model.userName) || string.IsNullOrEmpty(model.passWord)) 
             {
@@ -48,7 +50,10 @@ namespace VideoManage.Hosting.Controllers
 
             string token = GenerateToken("liu", model.userName);
 
-            return Ok(token);
+            //将token存放进session
+            HttpContext.Session.SetString("Token", token);
+
+            return Json(new Result { code = "0", msg = token });
 
             #region cookie方式，已废除
             //if (model.userName.Equals("admin") && model.passWord.Equals("123456..."))
@@ -110,9 +115,11 @@ namespace VideoManage.Hosting.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> LoginOut()
+        public IActionResult LoginOut()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Remove("Token");
+
+            //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Json(new Result { msg = "退出成功" });
             //var prop = new AuthenticationProperties()
             //{

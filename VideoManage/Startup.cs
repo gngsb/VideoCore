@@ -30,6 +30,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Newtonsoft.Json;
 using VideoManage.Constants;
 using VideoManage.Constants.Configurations;
+using VideoManage.Service.Property;
 
 namespace VideoManage
 {
@@ -56,6 +57,8 @@ namespace VideoManage
             services.AddScoped<DbContext, VideoContext>();
             services.AddScoped<VideoService>();
             services.AddScoped<UploadService>();
+            services.AddScoped<UserService>();
+            services.AddScoped<HouseService>();
             services.AddDbContext<VideoContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
             services.AddSwaggerGen(c =>
                 {

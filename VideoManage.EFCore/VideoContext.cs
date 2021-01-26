@@ -173,6 +173,8 @@ namespace VideoManage.EFCore
             {
                 entity.ToTable("w_admininfo");
 
+                entity.HasComment("登录信息表");
+
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Name)
@@ -191,6 +193,8 @@ namespace VideoManage.EFCore
             modelBuilder.Entity<WCostinfo>(entity =>
             {
                 entity.ToTable("w_costinfo");
+
+                entity.HasComment("缴费管理表");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -237,6 +241,8 @@ namespace VideoManage.EFCore
             {
                 entity.ToTable("w_houseinfo");
 
+                entity.HasComment("房屋信息表");
+
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Address)
@@ -264,6 +270,8 @@ namespace VideoManage.EFCore
             {
                 entity.ToTable("w_repairinfo");
 
+                entity.HasComment("维修管理表");
+
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Address)
@@ -289,6 +297,8 @@ namespace VideoManage.EFCore
             {
                 entity.ToTable("w_userinfo");
 
+                entity.HasComment("用户信息表");
+
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.ComeTime)
@@ -298,6 +308,10 @@ namespace VideoManage.EFCore
                 entity.Property(e => e.HouseId)
                     .HasColumnType("int(11)")
                     .HasComment("房屋编号");
+
+                entity.Property(e => e.IsDel)
+                    .HasColumnType("int(11)")
+                    .HasComment("是否删除 0：否  1是");
 
                 entity.Property(e => e.NumberId)
                     .HasColumnType("varchar(255)")

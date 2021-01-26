@@ -15,6 +15,14 @@ namespace VideoManage.Constants
 
         public long count { get; set; }
         public IEnumerable<T> data { get; set; }
+
+        public PageApiResult() { }
+
+        public PageApiResult(long _count, IEnumerable<T> _data)
+        {
+            count = _count;
+            data = _data;
+        }
     }
 
     public class PictureResult : Result
