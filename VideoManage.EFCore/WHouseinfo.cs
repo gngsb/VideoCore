@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace VideoManage.EFCore
 {
+    /// <summary>
+    /// 房屋信息表
+    /// </summary>
     public partial class WHouseinfo
     {
         public int Id { get; set; }

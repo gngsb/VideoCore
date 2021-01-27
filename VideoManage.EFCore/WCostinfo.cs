@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace VideoManage.EFCore
 {
+    /// <summary>
+    /// 缴费管理表
+    /// </summary>
     public partial class WCostinfo
     {
         public int Id { get; set; }

@@ -49,5 +49,27 @@ namespace VideoManage.Hosting.Controllers
         {
             return _userService.AddUserInfo(model);
         }
+
+        /// <summary>
+        /// 获取用户详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public WUserinfo GetUserInfo(int id) 
+        {
+            return _userService.GetUserInfo(id);
+        }
+
+        /// <summary>
+        /// 修改用户信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Result UpdateUserInfo(UserModel model) 
+        {
+            return _userService.UpdateUserInfo(model);
+        }
     }
 }

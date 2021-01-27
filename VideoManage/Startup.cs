@@ -31,6 +31,8 @@ using Newtonsoft.Json;
 using VideoManage.Constants;
 using VideoManage.Constants.Configurations;
 using VideoManage.Service.Property;
+using AutoMapper;
+using VideoManage.Service;
 
 namespace VideoManage
 {
@@ -60,6 +62,11 @@ namespace VideoManage
             services.AddScoped<UserService>();
             services.AddScoped<HouseService>();
             services.AddDbContext<VideoContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
+
+            //注入AutoMapper服务
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(c=>c.AddProfile(new AutoMapperProfile()));
+
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo { Title = "视频管理系统", Version = "v1" });

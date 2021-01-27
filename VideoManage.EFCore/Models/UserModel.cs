@@ -6,6 +6,8 @@ namespace VideoManage.EFCore.Models
 {
     public class UserModel
     {
+        public int? Id { get; set; }
+
         public string UserName { get; set; }
         /// <summary>
         /// 房屋编号

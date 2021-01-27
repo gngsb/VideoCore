@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace VideoManage.EFCore
 {
+    /// <summary>
+    /// 用户信息表
+    /// </summary>
     public partial class WUserinfo
     {
         public int Id { get; set; }
@@ -28,5 +31,9 @@ namespace VideoManage.EFCore
         /// 用户身份证号
         /// </summary>
         public string NumberId { get; set; }
+        /// <summary>
+        /// 是否删除 0：否  1是
+        /// </summary>
+        public int? IsDel { get; set; }
     }
 }

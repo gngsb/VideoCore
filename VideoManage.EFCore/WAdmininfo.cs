@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace VideoManage.EFCore
 {
+    /// <summary>
+    /// 登录信息表
+    /// </summary>
     public partial class WAdmininfo
     {
         public int Id { get; set; }
