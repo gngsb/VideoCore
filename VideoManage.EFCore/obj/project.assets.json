@@ -6270,11 +6270,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
+      "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
       "projectName": "VideoManage.EFCore",
-      "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
+      "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\obj\\",
+      "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6330,7 +6330,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

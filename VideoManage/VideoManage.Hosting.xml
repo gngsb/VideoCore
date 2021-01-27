@@ -4,11 +4,130 @@
         <name>VideoManage.Hosting</name>
     </assembly>
     <members>
-        <member name="M:VideoManage.Controllers.VideoManageController.GetVideo(VideoManage.EFCore.Models.PageQuery)">
+        <member name="M:VideoManage.Hosting.Controllers.AccountController.Login(VideoManage.EFCore.Models.LoginModel)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.AccountController.LoginOut">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VideoManage.Hosting.Controllers.HousrController">
+            <summary>
+            房屋管理
+            </summary>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.HousrController.#ctor(VideoManage.Service.Property.HouseService)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.HousrController.GetHouseList">
+            <summary>
+            获取所有房屋集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UploadController.AddImage">
+            <summary>
+            视频图片上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UploadController.UploadVideo">
+            <summary>
+            视频上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VideoManage.Hosting.Controllers.UserController">
+            <summary>
+            用户管理控制器
+            </summary>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.#ctor(VideoManage.Service.Property.UserService)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.GetPageList(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            获取用户分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.AddUserInfo(VideoManage.EFCore.Models.UserModel)">
+            <summary>
+            添加用户信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.GetUserInfo(System.Int32)">
+            <summary>
+            获取用户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.UpdateUserInfo(VideoManage.EFCore.Models.UserModel)">
+            <summary>
+            修改用户信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VideoManage.Hosting.Filters.MyAuthorizeFilter">
+            <summary>
+            自定义授权过滤器
+            </summary>
+        </member>
+        <member name="M:VideoManage.Controllers.VideoManageController.GetVideo(System.Int32,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             获取视频列表
             </summary>
-            <param name="query"></param>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <param name="Name"></param>
+            <param name="CId"></param>
+            <param name="TypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Controllers.VideoManageController.getList">
+            <summary>
+            获取所有国家列表数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Controllers.VideoManageController.getType">
+            <summary>
+            获取视频类别列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Controllers.VideoManageController.SelectVideo(System.Int32)">
+            <summary>
+            获取视频详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Controllers.VideoManageController.AddVideo(VideoManage.EFCore.Models.VideoModel)">
+            <summary>
+            添加视频信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Controllers.VideoManageController.EditVideo(VideoManage.EFCore.Models.VideoModel)">
+            <summary>
+            修改视频信息
+            </summary>
+            <param name="model"></param>
             <returns></returns>
         </member>
     </members>

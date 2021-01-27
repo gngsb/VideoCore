@@ -27,6 +27,26 @@
       {
          "HasPrimaryKey": true,
          "Name": "v_videos"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "w_admininfo"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "w_costinfo"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "w_houseinfo"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "w_repairinfo"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "w_userinfo"
       }
    ],
    "UseDatabaseNames": false,

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AXGzP/jfi3vxbKv3A6X3r/nO3YYOdxAh3HGjAdJGwOpoP5yOHhWmlZgzYY1EfYbErGfJg2NLv6DdnihzesAQfw==",
+  "dgSpecHash": "qFOKJuuj2odsOcOBexU/9mZtbhQkIp5OyF3PcjXkY7rXgjtjEgHPHbq9mHPDvo0eiMjH53/eTVC24IfvTtKSWA==",
   "success": true,
-  "projectFilePath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
+  "projectFilePath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",

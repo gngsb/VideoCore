@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "Edhu3reYA5C2Ia9Lg+eZkFzEFiKurCGOvfP9zPJh/nj8TQg0p/O/isd/dFZGhRvdDAt51zovkb8+mVjD/ClwdQ==",
+  "dgSpecHash": "OWi8fg6p4TWmvHXphPBvfSh/S+yq+88stzjN9TZYkmhQTI4G2s5oVNEUEPcssz6kgNu7z0BD7rOc1kLTc6Yvog==",
   "success": true,
-  "projectFilePath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\VideoManage.Constants.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\VideoManage.Constants.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.11\\microsoft.extensions.configuration.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.11\\microsoft.extensions.configuration.abstractions.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\3.1.11\\microsoft.extensions.configuration.fileextensions.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration.json\\3.1.11\\microsoft.extensions.configuration.json.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.11\\microsoft.extensions.fileproviders.abstractions.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.11\\microsoft.extensions.fileproviders.physical.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.11\\microsoft.extensions.filesystemglobbing.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.11\\microsoft.extensions.primitives.3.1.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

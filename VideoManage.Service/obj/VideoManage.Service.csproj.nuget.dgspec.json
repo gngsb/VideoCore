@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Service\\VideoManage.Service.csproj": {}
+    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Service\\VideoManage.Service.csproj": {}
   },
   "projects": {
-    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\VideoManage.Constants.csproj": {
+    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\VideoManage.Constants.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\VideoManage.Constants.csproj",
+        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\VideoManage.Constants.csproj",
         "projectName": "VideoManage.Constants",
-        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\VideoManage.Constants.csproj",
+        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\VideoManage.Constants.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\obj\\",
+        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,6 +42,24 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,18 +75,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj": {
+    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
+        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
         "projectName": "VideoManage.EFCore",
-        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
+        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\obj\\",
+        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -124,18 +142,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Service\\VideoManage.Service.csproj": {
+    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Service\\VideoManage.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Service\\VideoManage.Service.csproj",
+        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Service\\VideoManage.Service.csproj",
         "projectName": "VideoManage.Service",
-        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Service\\VideoManage.Service.csproj",
+        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Service\\VideoManage.Service.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Service\\obj\\",
+        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -155,11 +173,14 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\VideoManage.Constants.csproj": {
-                "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.Constants\\VideoManage.Constants.csproj"
+              "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\VideoManage.Constants.csproj": {
+                "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.Constants\\VideoManage.Constants.csproj"
               },
-              "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj": {
-                "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoManage\\VideoManage.EFCore\\VideoManage.EFCore.csproj"
+              "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj": {
+                "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.EFCore\\VideoManage.EFCore.csproj"
+              },
+              "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.ToolKits\\VideoManage.ToolKits.csproj": {
+                "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.ToolKits\\VideoManage.ToolKits.csproj"
               }
             }
           }
@@ -173,6 +194,36 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Newtonsoft.Json.Schema": {
+              "target": "Package",
+              "version": "[3.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -188,7 +239,78 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.ToolKits\\VideoManage.ToolKits.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.ToolKits\\VideoManage.ToolKits.csproj",
+        "projectName": "VideoManage.ToolKits",
+        "projectPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.ToolKits\\VideoManage.ToolKits.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "F:\\01个人文档\\01项目代码\\01.NET\\视频系统\\VideoCore\\VideoManage.ToolKits\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://192.168.10.114:8081/repository/nuget-hosted/": {},
+          "http://192.168.10.136:9966/nuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Nancy": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
