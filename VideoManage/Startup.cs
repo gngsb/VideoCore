@@ -33,6 +33,8 @@ using VideoManage.Constants.Configurations;
 using VideoManage.Service.Property;
 using AutoMapper;
 using VideoManage.Service;
+using Autofac;
+using VideoManage.Service.Extends;
 
 namespace VideoManage
 {
@@ -57,15 +59,18 @@ namespace VideoManage
             //跨域访问，临时的
             services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetPreflightMaxAge(TimeSpan.FromDays(10))));
             services.AddScoped<DbContext, VideoContext>();
-            services.AddScoped<VideoService>();
+            //services.AddScoped<VideoService>();
             services.AddScoped<UploadService>();
-            services.AddScoped<UserService>();
-            services.AddScoped<HouseService>();
+            //services.AddScoped<UserService>();
+            //services.AddScoped<HouseService>();
             services.AddDbContext<VideoContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
 
             //注入AutoMapper服务
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAutoMapper(c=>c.AddProfile(new AutoMapperProfile()));
+
+            //配置服务注入
+            services.AddScopeServices(typeof(BaseService).Assembly);
 
             services.AddSwaggerGen(c =>
                 {
@@ -176,6 +181,17 @@ namespace VideoManage
             //         //o.AccessDeniedPath = new PathString("/Account/Login");
             //         //o.SlidingExpiration = true;
             //     });
+        }
+
+        //Autofac自动注入
+        public void ConfigureContainer(ContainerBuilder builder) 
+        {
+            //业务逻辑层所在程序集命名空间
+            Assembly service = Assembly.Load("VideoManage.Service");//注：webapi要引用接口和类，不然这边读不到
+            //自动注入
+            builder.RegisterAssemblyTypes(service)
+                .Where(t => t.Name.EndsWith("Service"))
+                .AsImplementedInterfaces().InstancePerLifetimeScope();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

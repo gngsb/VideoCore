@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,12 @@ using VideoManage.EFCore;
 
 namespace VideoManage.Service.Property
 {
-    public class HouseService
+    public class HouseService : BaseService
     {
-        private readonly VideoContext _videoContext;
 
-        public HouseService(VideoContext videoContext) 
+        public HouseService(VideoContext videoContext, IMapper mapper) : base(videoContext, mapper)
         {
-            _videoContext = videoContext;
+
         }
 
         public List<WHouseinfo> GetHouseList() 

@@ -11,23 +11,15 @@ using VideoManage.Service.Extends;
 
 namespace VideoManage.Service.Property
 {
-    public class UserService
+    public class UserService : BaseService
     {
-        private readonly VideoContext _videoContext;
-
-        /// <summary>
-        /// 自动映射
-        /// </summary>
-        private readonly IMapper _mapper;
-
         /// <summary>
         /// 构造注入
         /// </summary>
         /// <param name="videoContext"></param>
-        public UserService(VideoContext videoContext,IMapper mapper)
+        public UserService(VideoContext videoContext, IMapper mapper) : base(videoContext, mapper) 
         {
-            _videoContext = videoContext;
-            _mapper = mapper;
+           
         }
 
         public PageApiResult<UserInfoModel> GetPageList(int page, int limit, string userName, string phone, DateTime? startTime, DateTime? endTime)

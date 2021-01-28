@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using AutoMapper;
+using log4net;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,12 @@ using VideoManage.ToolKits.Helper;
 
 namespace VideoManage.Service.Video
 {
-    public class VideoService
+    public class VideoService : BaseService
     {
-        private readonly VideoContext _videoContext;
 
-        public VideoService(VideoContext videoContext) 
+        public VideoService(VideoContext videoContext, IMapper mapper) : base(videoContext, mapper)
         {
-            _videoContext = videoContext;
+
         }
 
         public PageApiResult<VVideolist> GetVideo(PageQuery query) 
