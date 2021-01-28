@@ -82,6 +82,13 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.DeleteUserInfo(System.Int32)">
+            <summary>
+            删除用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:VideoManage.Hosting.Filters.MyAuthorizeFilter">
             <summary>
             自定义授权过滤器

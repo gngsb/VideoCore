@@ -16,7 +16,7 @@ namespace VideoManage.EFCore
         /// </summary>
         public int? HouseId { get; set; }
         /// <summary>
-        /// 用户性别
+        /// 用户性别 0：女  1：男
         /// </summary>
         public int? Sex { get; set; }
         /// <summary>

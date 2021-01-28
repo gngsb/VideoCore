@@ -71,5 +71,16 @@ namespace VideoManage.Hosting.Controllers
         {
             return _userService.UpdateUserInfo(model);
         }
+
+        /// <summary>
+        /// 删除用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public Result DeleteUserInfo(int id) 
+        {
+            return _userService.DeleteUserInfo(id);
+        }
     }
 }

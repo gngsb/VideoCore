@@ -184,15 +184,15 @@ namespace VideoManage
         }
 
         //Autofac自动注入
-        public void ConfigureContainer(ContainerBuilder builder) 
-        {
-            //业务逻辑层所在程序集命名空间
-            Assembly service = Assembly.Load("VideoManage.Service");//注：webapi要引用接口和类，不然这边读不到
-            //自动注入
-            builder.RegisterAssemblyTypes(service)
-                .Where(t => t.Name.EndsWith("Service"))
-                .AsImplementedInterfaces().InstancePerLifetimeScope();
-        }
+        //public void ConfigureContainer(ContainerBuilder builder) 
+        //{
+        //    //业务逻辑层所在程序集命名空间
+        //    Assembly service = Assembly.Load("VideoManage.Service");//注：webapi要引用接口和类，不然这边读不到
+        //    //自动注入
+        //    builder.RegisterAssemblyTypes(service)
+        //        .Where(t => t.Name.EndsWith("Service"))
+        //        .AsImplementedInterfaces().InstancePerLifetimeScope();
+        //}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

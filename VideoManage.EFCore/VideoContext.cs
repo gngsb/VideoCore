@@ -259,11 +259,7 @@ namespace VideoManage.EFCore
 
                 entity.Property(e => e.HouseType)
                     .HasColumnType("int(11)")
-                    .HasComment("房屋户型");
-
-                entity.Property(e => e.Number)
-                    .HasColumnType("int(11)")
-                    .HasComment("入住人数");
+                    .HasComment("房屋户型 0：两室一厅一厨一卫  1：三室一厅一厨一卫  2：三室两厅一厨一卫  3：三室两厅一厨两卫");
             });
 
             modelBuilder.Entity<WRepairinfo>(entity =>
@@ -327,7 +323,7 @@ namespace VideoManage.EFCore
 
                 entity.Property(e => e.Sex)
                     .HasColumnType("int(11)")
-                    .HasComment("用户性别");
+                    .HasComment("用户性别 0：女  1：男");
 
                 entity.Property(e => e.UserName)
                     .IsRequired()

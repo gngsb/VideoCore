@@ -112,5 +112,19 @@ namespace VideoManage.Service.Property
             _videoContext.SaveChanges();
             return new Result() { msg = "修改成功" };
         }
+
+        /// <summary>
+        /// 删除用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Result DeleteUserInfo(int id) 
+        {
+            var user = _videoContext.WUserinfo.Where(x => x.Id == id && x.IsDel == 0).FirstOrDefault();
+            user.IsDel = 1;
+            _videoContext.Update(user);
+            _videoContext.SaveChanges();
+            return new Result() { msg = "修改成功" };
+        }
     }
 }

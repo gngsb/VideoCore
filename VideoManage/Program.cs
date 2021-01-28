@@ -22,7 +22,7 @@ namespace VideoManage
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .UseServiceProviderFactory(new AutofacServiceProviderFactory());
+                });
+                //.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
 }

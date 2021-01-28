@@ -12,6 +12,7 @@ namespace VideoManage.Service
         public AutoMapperProfile() 
         {
             CreateMap<UserModel, WUserinfo>().ForMember(x => x.Id, opt => opt.Ignore());
+            CreateMap<HouseModel, WHouseinfo>().ForMember(x => x.Id, opt => opt.Ignore());
         }
     }
 }
