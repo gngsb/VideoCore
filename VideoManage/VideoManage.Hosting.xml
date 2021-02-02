@@ -17,20 +17,46 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:VideoManage.Hosting.Controllers.HousrController">
+        <member name="T:VideoManage.Hosting.Controllers.HouseController">
             <summary>
             房屋管理
             </summary>
         </member>
-        <member name="M:VideoManage.Hosting.Controllers.HousrController.#ctor(VideoManage.Service.Property.HouseService)">
+        <member name="M:VideoManage.Hosting.Controllers.HouseController.#ctor(VideoManage.Service.Property.HouseService)">
             <summary>
             构造函数
             </summary>
         </member>
-        <member name="M:VideoManage.Hosting.Controllers.HousrController.GetHouseList">
+        <member name="M:VideoManage.Hosting.Controllers.HouseController.GetPageList(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取房屋分页列表集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.HouseController.GetHouseList">
             <summary>
             获取所有房屋集合
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.HouseController.GetHouseInfo(System.Int32)">
+            <summary>
+            获取当前房屋信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.HouseController.AddHouseInfo(VideoManage.EFCore.Models.HouseModel)">
+            <summary>
+            新增房屋信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.HouseController.UpdateHouseInfo(VideoManage.EFCore.Models.HouseModel)">
+            <summary>
+            修改房屋信息
+            </summary>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="M:VideoManage.Hosting.Controllers.UploadController.AddImage">

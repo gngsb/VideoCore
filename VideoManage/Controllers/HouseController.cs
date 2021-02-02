@@ -17,16 +17,26 @@ namespace VideoManage.Hosting.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     //[MyAuthorizeFilter]
-    public class HousrController : Controller
+    public class HouseController : Controller
     {
         private readonly HouseService _houseService;
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        public HousrController(HouseService houseService) 
+        public HouseController(HouseService houseService) 
         {
             _houseService = houseService;
+        }
+
+        /// <summary>
+        /// 获取房屋分页列表集合
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public PageApiResult<WHouseinfo> GetPageList(int page, int limit, string Address, string HouseType) 
+        {
+            return _houseService.GetPageList(page,limit,Address,HouseType);
         }
 
         /// <summary>
@@ -34,7 +44,7 @@ namespace VideoManage.Hosting.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<WHouseinfo> GetHouseList() 
+        public List<WHouseinfo> GetHouseList()
         {
             return _houseService.GetHouseList();
         }

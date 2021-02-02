@@ -7,6 +7,7 @@ using System.Text;
 using VideoManage.Constants;
 using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
+using VideoManage.Service.Extends;
 
 namespace VideoManage.Service.Property
 {
@@ -18,7 +19,24 @@ namespace VideoManage.Service.Property
 
         }
 
-        public List<WHouseinfo> GetHouseList() 
+
+        public PageApiResult<WHouseinfo> GetPageList(int page, int limit, string Address, string HouseType) 
+        {
+            var query = _videoContext.WHouseinfo.AsNoTracking();
+            if (!string.IsNullOrEmpty(Address)) 
+            {
+                query = query.Where(x => x.Address.Contains(Address));
+            }
+            if (!string.IsNullOrEmpty(HouseType) && HouseType != "-1") 
+            {
+                query = query.Where(x => x.HouseType == Convert.ToInt32(HouseType));
+            }
+            var count = query.Count();
+            var result = query.PageByIndex(page, limit).ToList();
+            return new PageApiResult<WHouseinfo>(count, result);
+        }
+
+        public List<WHouseinfo> GetHouseList()
         {
             return _videoContext.WHouseinfo.AsNoTracking().ToList();
         }
