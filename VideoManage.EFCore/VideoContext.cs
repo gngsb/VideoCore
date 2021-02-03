@@ -206,13 +206,17 @@ namespace VideoManage.EFCore
 
                 entity.Property(e => e.CreateTime)
                     .HasColumnType("datetime")
-                    .HasComment("缴费时间");
+                    .HasComment("创建时间");
 
                 entity.Property(e => e.ElectricMoney)
                     .HasColumnType("varchar(255)")
                     .HasComment("电费")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.PayTime)
+                    .HasColumnType("datetime")
+                    .HasComment("缴费时间");
 
                 entity.Property(e => e.SerMoney)
                     .HasColumnType("varchar(255)")
@@ -272,7 +276,7 @@ namespace VideoManage.EFCore
 
                 entity.Property(e => e.Address)
                     .HasColumnType("varchar(255)")
-                    .HasComment("保修地址")
+                    .HasComment("报修地址")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
 

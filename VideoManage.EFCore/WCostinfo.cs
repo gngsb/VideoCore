@@ -35,8 +35,12 @@ namespace VideoManage.EFCore
         /// </summary>
         public string CoalMoney { get; set; }
         /// <summary>
-        /// 缴费时间
+        /// 创建时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
+        /// <summary>
+        /// 缴费时间
+        /// </summary>
+        public DateTime? PayTime { get; set; }
     }
 }

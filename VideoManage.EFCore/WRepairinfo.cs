@@ -11,7 +11,7 @@ namespace VideoManage.EFCore
     {
         public int Id { get; set; }
         /// <summary>
-        /// 保修地址
+        /// 报修地址
         /// </summary>
         public string Address { get; set; }
         /// <summary>
