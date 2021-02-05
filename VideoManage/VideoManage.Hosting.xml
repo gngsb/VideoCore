@@ -17,6 +17,56 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:VideoManage.Hosting.Controllers.CostController">
+            <summary>
+            缴费管理
+            </summary>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.CostController.#ctor(VideoManage.Service.Property.CostService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="costService"></param>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.CostController.GetPageList(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            获取缴费分页信息
+            </summary>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <param name="UserName"></param>
+            <param name="CostType"></param>
+            <param name="StartTime"></param>
+            <param name="EndTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.CostController.AddCostInfo(VideoManage.EFCore.Models.CostModel)">
+            <summary>
+            新增缴费信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.CostController.UpdateCostInfo(VideoManage.EFCore.Models.CostModel)">
+            <summary>
+            修改缴费信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.CostController.DeleteCostInfo(System.Int32)">
+            <summary>
+            删除缴费信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.CostController.GetCostInfo(System.Int32)">
+            <summary>
+            获取缴费详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:VideoManage.Hosting.Controllers.HouseController">
             <summary>
             房屋管理
@@ -113,6 +163,12 @@
             删除用户信息
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.UserController.GetUserList">
+            <summary>
+            获取用户列表信息
+            </summary>
             <returns></returns>
         </member>
         <member name="T:VideoManage.Hosting.Filters.MyAuthorizeFilter">

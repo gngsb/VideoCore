@@ -198,9 +198,15 @@ namespace VideoManage.EFCore
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
-                entity.Property(e => e.CoalMoney)
+                entity.Property(e => e.CostMoney)
                     .HasColumnType("varchar(255)")
-                    .HasComment("煤气费")
+                    .HasComment("缴费金额")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.CostType)
+                    .HasColumnType("varchar(255)")
+                    .HasComment("缴费类型 1：水费  2：电费  3：物业费  4：停车费  5：煤气费")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
 
@@ -208,35 +214,31 @@ namespace VideoManage.EFCore
                     .HasColumnType("datetime")
                     .HasComment("创建时间");
 
-                entity.Property(e => e.ElectricMoney)
+                entity.Property(e => e.HouseAddress)
                     .HasColumnType("varchar(255)")
-                    .HasComment("电费")
+                    .HasComment("房屋地址")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.HouseId)
+                    .HasColumnType("int(11)")
+                    .HasComment("房屋编号");
+
+                entity.Property(e => e.IsDel)
+                    .HasColumnType("int(11)")
+                    .HasComment("是否删除 0：否   1：是");
 
                 entity.Property(e => e.PayTime)
                     .HasColumnType("datetime")
                     .HasComment("缴费时间");
 
-                entity.Property(e => e.SerMoney)
-                    .HasColumnType("varchar(255)")
-                    .HasComment("物业费")
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_unicode_ci");
-
-                entity.Property(e => e.StoMoney)
-                    .HasColumnType("varchar(255)")
-                    .HasComment("停车费")
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_unicode_ci");
-
                 entity.Property(e => e.UserId)
                     .HasColumnType("int(11)")
                     .HasComment("用户编号");
 
-                entity.Property(e => e.WaterMoney)
+                entity.Property(e => e.UserName)
                     .HasColumnType("varchar(255)")
-                    .HasComment("水费")
+                    .HasComment("用户姓名")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_unicode_ci");
             });

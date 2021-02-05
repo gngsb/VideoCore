@@ -126,5 +126,14 @@ namespace VideoManage.Service.Property
             _videoContext.SaveChanges();
             return new Result() { msg = "修改成功" };
         }
+
+        /// <summary>
+        /// 获取用户列表信息
+        /// </summary>
+        /// <returns></returns>
+        public List<WUserinfo> GetUserList() 
+        {
+            return _videoContext.WUserinfo.Where(x => x.IsDel == 0).ToList();
+        }
     }
 }
