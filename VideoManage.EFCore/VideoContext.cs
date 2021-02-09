@@ -286,13 +286,31 @@ namespace VideoManage.EFCore
                     .HasColumnType("datetime")
                     .HasComment("提交时间");
 
+                entity.Property(e => e.IsDel)
+                    .HasColumnType("int(11)")
+                    .HasComment("是否删除 0：否  1：是");
+
+                entity.Property(e => e.Message)
+                    .HasColumnType("varchar(500)")
+                    .HasComment("报修信息")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.RepairName)
+                    .HasColumnType("varchar(255)")
+                    .HasComment("维修人")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_unicode_ci");
+
                 entity.Property(e => e.RepairTime)
                     .HasColumnType("datetime")
                     .HasComment("维修时间");
 
-                entity.Property(e => e.UserId)
-                    .HasColumnType("int(11)")
-                    .HasComment("业主编号");
+                entity.Property(e => e.UserName)
+                    .HasColumnType("varchar(255)")
+                    .HasComment("报修人")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_unicode_ci");
             });
 
             modelBuilder.Entity<WUserinfo>(entity =>

@@ -109,6 +109,57 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="T:VideoManage.Hosting.Controllers.RepairController">
+            <summary>
+            维修管理
+            </summary>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.#ctor(VideoManage.Service.Property.RepairService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="repairService"></param>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.GetPageList(System.Int32,System.Int32,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            获取分页列表数据
+            </summary>
+            <param name="page"></param>
+            <param name="limit"></param>
+            <param name="UserName"></param>
+            <param name="Address"></param>
+            <param name="RepairName"></param>
+            <param name="StartTime"></param>
+            <param name="EndTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.AddRepairInfo(VideoManage.EFCore.Models.RepairModel)">
+            <summary>
+            新增维修信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.UpdateRepairInfo(VideoManage.EFCore.Models.RepairModel)">
+            <summary>
+            修改维修信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.GetRepairInfo(System.Int32)">
+            <summary>
+            获取维修详情信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.DelRepairInfo(System.Int32)">
+            <summary>
+            删除维修信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:VideoManage.Hosting.Controllers.UploadController.AddImage">
             <summary>
             视频图片上传
