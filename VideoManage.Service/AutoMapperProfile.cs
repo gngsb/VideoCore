@@ -14,6 +14,7 @@ namespace VideoManage.Service
             CreateMap<UserModel, WUserinfo>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<HouseModel, WHouseinfo>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<CostModel, WCostinfo>().ForMember(x => x.Id, opt => opt.Ignore());
+            CreateMap<RepairModel, WRepairinfo>().ForMember(x => x.Id, opt => opt.Ignore());
         }
     }
 }

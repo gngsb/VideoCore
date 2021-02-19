@@ -60,7 +60,7 @@ namespace VideoManage.Hosting.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         public Result UpdateRepairInfo(RepairModel model)
         {
             return _repairService.UpdateRepairInfo(model);
