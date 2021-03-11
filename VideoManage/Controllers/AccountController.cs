@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,6 +16,7 @@ using VideoManage.Constants;
 using VideoManage.Constants.Configurations;
 using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
+using VideoManage.Hosting.Common;
 using VideoManage.ToolKits.Helper;
 
 namespace VideoManage.Hosting.Controllers
@@ -25,11 +27,13 @@ namespace VideoManage.Hosting.Controllers
     {
         private readonly VideoContext _videoContext;
         private readonly IHttpContextAccessor _httpContext;
+        private readonly IDatabase _redis;
 
-        public AccountController(VideoContext videoContext, IHttpContextAccessor httpContext)
+        public AccountController(VideoContext videoContext, IHttpContextAccessor httpContext, RedisHelper client)
         {
             _videoContext = videoContext;
             _httpContext = httpContext;
+            _redis = client.GetDatabase();
         }
 
         /// <summary>
@@ -54,6 +58,8 @@ namespace VideoManage.Hosting.Controllers
 
             //将token存放进session
             HttpContext.Session.SetString("Token", token);
+            //将token存放进redis
+            _redis.StringSet("Token", token, new TimeSpan(0, 30, 0));
             var tokens = _httpContext.HttpContext.Session.GetString("Token");
 
             return Json(new Result { code = "0", msg = token });

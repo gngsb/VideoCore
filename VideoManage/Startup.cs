@@ -35,6 +35,7 @@ using AutoMapper;
 using VideoManage.Service;
 using Autofac;
 using VideoManage.Service.Extends;
+using VideoManage.Hosting.Common;
 
 namespace VideoManage
 {
@@ -126,6 +127,15 @@ namespace VideoManage
                 }
             );
 
+            #region Redis
+            //连接字符串
+            string _connectionString = AppSettings.Redis.RedisConnectionString;
+            //实例名称
+            string _instanceName = AppSettings.Redis.InstanceName;
+            //默认数据库
+            int _defaultDB = int.Parse(AppSettings.Redis.DefaultDB ?? "0");
+            services.AddSingleton(new RedisHelper(_connectionString, _instanceName, _defaultDB));
+            #endregion
 
             #region 集成jwt
             //将公共信息提取出来，这里可以放到配置文件中，同一读取，以下直接在程序中写死了

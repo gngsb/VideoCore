@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using VideoManage.Constants;
+using VideoManage.Constants.Configurations;
+using VideoManage.Hosting.Common;
 using VideoManage.ToolKits.Helper;
 
 namespace VideoManage.Hosting.Filters
@@ -18,12 +21,23 @@ namespace VideoManage.Hosting.Filters
     {
 
         IHttpContextAccessor _httpContext;
+        //连接字符串
+        private static string _connectionString = AppSettings.Redis.RedisConnectionString;
+        //实例名称
+        private static string _instanceName = AppSettings.Redis.InstanceName;
+        //默认数据库
+        private static int _defaultDB = int.Parse(AppSettings.Redis.DefaultDB ?? "0");
+
+        private static RedisHelper redisHelper = new RedisHelper(_connectionString, _instanceName, _defaultDB);
+
+        private readonly IDatabase _redis = redisHelper.GetDatabase();
 
         public MyAuthorizeFilter() { }
 
-        public MyAuthorizeFilter(IHttpContextAccessor httpContext) 
+        public MyAuthorizeFilter(IHttpContextAccessor httpContext, RedisHelper client) 
         {
             _httpContext = httpContext;
+            _redis = client.GetDatabase();
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
@@ -31,7 +45,8 @@ namespace VideoManage.Hosting.Filters
             //验证是否登录
             //var token = context.HttpContext.Request.Headers["Authorization"];
             var token = context.HttpContext.Request.Headers["token"];
-            var value = context.HttpContext.Session.GetString("Token");
+            //var value = context.HttpContext.Session.GetString("Token");
+            var value = _redis.StringGet("Token");
             if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(value)) 
             {
                 //结果转为自定义消息格式

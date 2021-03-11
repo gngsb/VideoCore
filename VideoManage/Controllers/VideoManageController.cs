@@ -16,7 +16,7 @@ namespace VideoManage.Controllers
     
     [Route("api/[controller]/[action]")]
     [ApiController]
-    //[MyAuthorizeFilter]
+    [MyAuthorizeFilter]
     public class VideoManageController : Controller
     {
         //VideoContext context =null;

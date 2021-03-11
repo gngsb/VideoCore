@@ -45,5 +45,17 @@ namespace VideoManage.Constants.Configurations
 
             public static string TimeOut => _config["Session:TimeOut"];
         }
+
+        /// <summary>
+        /// Redis配置文件
+        /// </summary>
+        public static class Redis 
+        {
+            public static string RedisConnectionString => _config["Redis:RedisConnectionString"];
+
+            public static string InstanceName => _config["Redis:InstanceName"];
+
+            public static string DefaultDB => _config["Redis:DefaultDB"];
+        }
     }
 }

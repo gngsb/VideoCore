@@ -18,7 +18,7 @@ namespace VideoManage.Hosting.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    //[MyAuthorizeFilter]
+    [MyAuthorizeFilter]
     public class RepairController : Controller
     {
         private readonly RepairService _repairService;

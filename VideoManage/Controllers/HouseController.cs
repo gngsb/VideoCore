@@ -16,7 +16,7 @@ namespace VideoManage.Hosting.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    //[MyAuthorizeFilter]
+    [MyAuthorizeFilter]
     public class HouseController : Controller
     {
         private readonly HouseService _houseService;

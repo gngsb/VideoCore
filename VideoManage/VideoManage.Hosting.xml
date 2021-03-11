@@ -4,6 +4,20 @@
         <name>VideoManage.Hosting</name>
     </assembly>
     <members>
+        <member name="M:VideoManage.Hosting.Common.RedisHelper.GetConnect">
+            <summary>
+            获取ConnectionMultiplexer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VideoManage.Hosting.Common.RedisHelper.GetDatabase">
+            <summary>
+            获取数据库
+            </summary>
+            <param name="configName"></param>
+            <param name="db">默认为0：优先代码的db配置，其次config中的配置</param>
+            <returns></returns>
+        </member>
         <member name="M:VideoManage.Hosting.Controllers.AccountController.Login(VideoManage.EFCore.Models.LoginModel)">
             <summary>
             用户登录
