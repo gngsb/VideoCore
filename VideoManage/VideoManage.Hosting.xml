@@ -114,7 +114,7 @@
             维修管理
             </summary>
         </member>
-        <member name="M:VideoManage.Hosting.Controllers.RepairController.#ctor(VideoManage.Service.Property.RepairService)">
+        <member name="M:VideoManage.Hosting.Controllers.RepairController.#ctor(VideoManage.Service.Property.RepairService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             构造函数
             </summary>

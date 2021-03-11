@@ -24,10 +24,12 @@ namespace VideoManage.Hosting.Controllers
     public class AccountController : Controller
     {
         private readonly VideoContext _videoContext;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public AccountController(VideoContext videoContext)
+        public AccountController(VideoContext videoContext, IHttpContextAccessor httpContext)
         {
             _videoContext = videoContext;
+            _httpContext = httpContext;
         }
 
         /// <summary>
@@ -52,6 +54,7 @@ namespace VideoManage.Hosting.Controllers
 
             //将token存放进session
             HttpContext.Session.SetString("Token", token);
+            var tokens = _httpContext.HttpContext.Session.GetString("Token");
 
             return Json(new Result { code = "0", msg = token });
 

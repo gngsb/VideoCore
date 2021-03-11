@@ -16,6 +16,16 @@ namespace VideoManage.Hosting.Filters
     /// </summary>
     public class MyAuthorizeFilter : Attribute, IAuthorizationFilter
     {
+
+        IHttpContextAccessor _httpContext;
+
+        public MyAuthorizeFilter() { }
+
+        public MyAuthorizeFilter(IHttpContextAccessor httpContext) 
+        {
+            _httpContext = httpContext;
+        }
+
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             //验证是否登录

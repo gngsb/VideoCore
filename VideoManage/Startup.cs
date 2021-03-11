@@ -50,6 +50,25 @@ namespace VideoManage
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region session
+            //使用session
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            //启用内存缓存(该步骤需在AddSession()调用前使用)
+            services.AddDistributedMemoryCache();//启用session之前必须先添加内存
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = AppSettings.Session.Name;
+                options.IdleTimeout = System.TimeSpan.FromMinutes(Convert.ToDouble(AppSettings.Session.TimeOut));//设置session过期时间
+                options.Cookie.HttpOnly = true;//设置在浏览器不能通过js获得该cookie的值
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            #endregion
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllers();
             //services.AddControllers(config=> 
             //{
@@ -57,7 +76,16 @@ namespace VideoManage
             //    config.Filters.Add(typeof(MyAuthorizeFilter));
             //});
             //跨域访问，临时的
-            services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetPreflightMaxAge(TimeSpan.FromDays(10))));
+            //services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetPreflightMaxAge(TimeSpan.FromDays(10))));
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAll",
+            //    builder =>
+            //    {
+            //        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            //    });
+            //});
+            services.AddCors();
             services.AddScoped<DbContext, VideoContext>();
             //services.AddScoped<VideoService>();
             services.AddScoped<UploadService>();
@@ -67,7 +95,7 @@ namespace VideoManage
 
             //注入AutoMapper服务
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddAutoMapper(c=>c.AddProfile(new AutoMapperProfile()));
+            services.AddAutoMapper(c => c.AddProfile(new AutoMapperProfile()));
 
             //配置服务注入
             services.AddScopeServices(typeof(BaseService).Assembly);
@@ -153,23 +181,6 @@ namespace VideoManage
             });
             #endregion
 
-            #region session
-            //使用session
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-            //启用内存缓存(该步骤需在AddSession()调用前使用)
-            services.AddDistributedMemoryCache();//启用session之前必须先添加内存
-            services.AddSession(options =>
-            {
-                options.Cookie.Name = AppSettings.Session.Name;
-                options.IdleTimeout = System.TimeSpan.FromMinutes(Convert.ToDouble(AppSettings.Session.TimeOut));//设置session过期时间
-                options.Cookie.HttpOnly = true;//设置在浏览器不能通过js获得该cookie的值
-            });
-            #endregion
-
 
             services.AddAuthorization();
             //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -202,16 +213,13 @@ namespace VideoManage
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            //跨域访问
-            app.UseCors();
-
             app.UseSwagger();
-
-            app.UseSession();
 
             app.UseSwaggerUI(c =>
             {
@@ -222,6 +230,25 @@ namespace VideoManage
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            //跨域访问
+            //app.UseCors();
+
+            //app.UseCors("AllowAll");
+
+            // app.UseCors(builder =>
+            //builder.WithOrigins("http://192.168.13.234:8090", "https://localhost:44331")
+            //    .AllowAnyHeader()
+            //    .AllowAnyMethod());
+
+            app.UseCors(options => options.WithOrigins("http://192.168.13.234:8090")
+                .AllowAnyHeader()               // 确保策略允许任何标头
+                .AllowAnyMethod()               // 确保策略允许任何方法
+                .SetIsOriginAllowed(o => true)  // 设置指定的isOriginAllowed为基础策略
+                .AllowCredentials());           // 将策略设置为允许凭据。
+
+
+            app.UseMvc();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +8,7 @@ using System.Threading.Tasks;
 using VideoManage.Constants;
 using VideoManage.EFCore;
 using VideoManage.EFCore.Models;
+using VideoManage.Hosting.Filters;
 using VideoManage.Service.Property;
 
 namespace VideoManage.Hosting.Controllers
@@ -15,17 +18,20 @@ namespace VideoManage.Hosting.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
+    //[MyAuthorizeFilter]
     public class RepairController : Controller
     {
         private readonly RepairService _repairService;
+        private readonly IHttpContextAccessor _httpContext;
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="repairService"></param>
-        public RepairController(RepairService repairService)
+        public RepairController(RepairService repairService, IHttpContextAccessor httpContext)
         {
             _repairService = repairService;
+            _httpContext = httpContext;
         }
 
         /// <summary>
@@ -40,6 +46,7 @@ namespace VideoManage.Hosting.Controllers
         /// <param name="EndTime"></param>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public PageApiResult<WRepairinfo> GetPageList(int page, int limit, string UserName, string Address, string RepairName, DateTime? StartTime, DateTime? EndTime)
         {
             return _repairService.GetPageList(page, limit, UserName, Address, RepairName, StartTime, EndTime);
