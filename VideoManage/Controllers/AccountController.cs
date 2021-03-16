@@ -57,7 +57,7 @@ namespace VideoManage.Hosting.Controllers
             string token = GenerateToken("liu", model.userName);
 
             //将token存放进session
-            HttpContext.Session.SetString("Token", token);
+            //HttpContext.Session.SetString("Token", token);
             //将token存放进redis
             _redis.StringSet("Token", token, new TimeSpan(0, 30, 0));
             var tokens = _httpContext.HttpContext.Session.GetString("Token");
@@ -126,7 +126,9 @@ namespace VideoManage.Hosting.Controllers
         [HttpPost]
         public IActionResult LoginOut()
         {
-            HttpContext.Session.Remove("Token");
+            //HttpContext.Session.Remove("Token");
+            //清空redis内指定token
+            _redis.KeyDelete("Token");
 
             //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Json(new Result { msg = "退出成功" });
